@@ -2,15 +2,15 @@ import React from 'react'
 
 export default function Navigation() {
   return (
-    <>
+    <header>
         <nav>
-            <ul>
-                <li>Home</li>
-                <li>Play Nfl Trivia</li>
-                <li>Create NFL Analyst</li>
-                <li>Badges</li>
+            <ul className="nav-bar">
+                <li className ="nav-item">Home</li>
+                <li className ="nav-item">Play Nfl Trivia</li>
+                <li className ="nav-item">Create NFL Analyst</li>
+                <li className ="nav-item">Badges</li>
             </ul>
         </nav>
-    </>
+    </header>
   )
 }
