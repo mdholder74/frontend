@@ -3,24 +3,22 @@ import React from 'react'
 export default function Card() {
   return (
     <>
-        <div>
+    <div className="container">
+        <div className="question-container">
             <h2>Question 1</h2>
-            <p>Playing as: John Doe</p>
-            <p>What is the name of the NFL team in Las Vegas?</p>
+            <p><b>NFL Analyst:</b> John Doe</p>
+            <p className ="question">What is the name of the NFL team in Las Vegas?</p>
+        </div>
+        <div className="answer-buttons">
+            <button className ="btn">A</button>
+            <button className ="btn"> B</button>
+            <button className ="btn">C</button>
+            <button className ="btn">D</button>
         </div>
         <div>
-            <h2>Answers</h2>
-            <ul>
-                <li>Las Vegas Raiders</li>
-                <li>Las Vegas Knights</li>
-                <li>Las Vegas Aces</li>
-                <li>Las Vegas Lights</li>
-            </ul>
+            <button className = "next-btn">Next Question</button>
+            <p>1/10</p>
         </div>
-        <div>
-            <button>Next Question</button>
-            <p>progress bar</p>
-
         </div>
     </>
   )
