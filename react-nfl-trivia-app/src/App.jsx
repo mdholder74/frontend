@@ -5,6 +5,7 @@ import Card from './components/Card'
 import Navigation from './components/Navigation'
 import Analyst from './components/Analyst'
 import Badges from './components/Badges'
+import About from './components/About'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Card />
       <Analyst />
       <Badges />
+      <About />
       <Footer />
     </main>
 
