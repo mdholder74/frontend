@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Card from './components/Card'
 import Navigation from './components/Navigation'
 import Analyst from './components/Analyst'
+import Badges from './components/Badges'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Card />
       <Analyst />
+      <Badges />
       <Footer />
     </main>
 
