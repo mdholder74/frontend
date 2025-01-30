@@ -9,10 +9,13 @@ function App() {
 
   return (
     <>
-    <Navigation />
-    <Header />
-    <Card />
-    <Footer />
+    <main className="container">
+      <Navigation />
+      <Header />
+      <Card />
+      <Footer />
+    </main>
+
 
     </>
   )

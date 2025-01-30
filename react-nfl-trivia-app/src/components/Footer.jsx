@@ -2,12 +2,10 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer>
-    <section className="footer">
-      <p>CopyRight Moe Holder 2025</p>
-      <p>Privacy & Cookies</p>
-      <p>Terms of Service</p>
-    </section>
+  <footer className="footer">
+    <p className = "footer-item">CopyRight Moe Holder 2025</p>
+    <p className = "footer-item"> Privacy & Cookies</p>
+    <p className = "footer-item">Terms of Service</p>
   </footer>
   )
 }

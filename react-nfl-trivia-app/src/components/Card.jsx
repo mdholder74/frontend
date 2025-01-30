@@ -3,8 +3,8 @@ import React from 'react'
 export default function Card() {
   return (
     <>
-    <div className="container">
-        <div className="question-container">
+    <div className="question-container">
+        <div>
             <h2>Question 1</h2>
             <p><b>NFL Analyst:</b> John Doe</p>
             <p className ="question">What is the name of the NFL team in Las Vegas?</p>
