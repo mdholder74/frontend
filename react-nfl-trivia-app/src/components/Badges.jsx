@@ -6,12 +6,12 @@ import ribbonAward from "../assets/ribbonAward.jpg";
 
 export default function Badges() {
   return (
-    <div>
-        <div className = "badge-title">The Champ</div>
+    <div className="badges-container">
+        <div className = "badge-title-1">The Champ</div>
         <img className= "badge-img" src={trophyAward} alt="trophyAward" />
-        <div className = "badge-title">The All-Pro</div>
+        <div className = "badge-title-2">The All-Pro</div>
         <img className= "badge-img" src={medalAward} alt="medalAward" />
-        <div className = "badge-title">The Fumble Master</div>
+        <div className = "badge-title-3">The Fumble Master</div>
         <img className= "badge-img" src={ribbonAward} alt="ribbonAward" />
     </div>
   )
