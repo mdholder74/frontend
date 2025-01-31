@@ -83,6 +83,10 @@
     cursor: pointer;
 }
 
+.index {
+    margin: 10px;
+}
+
 .card {
     border: 2px solid black;
     margin: 10px;

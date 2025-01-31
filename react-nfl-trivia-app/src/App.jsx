@@ -1,7 +1,7 @@
 import './App.css'
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Card from './components/Card'
+import Quiz from './components/Quiz'
 import Navigation from './components/Navigation'
 import Analyst from './components/Analyst'
 import Badges from './components/Badges'
@@ -15,7 +15,7 @@ function App() {
     <main className="container">
       <Navigation />
       <Header />
-      <Card />
+      <Quiz />
       <Analyst />
       <Badges />
       <About />

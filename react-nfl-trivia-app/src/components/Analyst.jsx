@@ -3,9 +3,9 @@ import React from 'react'
 export default function Analyst() {
   return (
     <div>
-      <div class="analyst-container">
+      <div className="analyst-container">
           <h2 className ="analyst-header">Create A NFL Analyst</h2>
-          <div class="form">
+          <div className="form">
               <label>NAME</label>
               <select>
                   <option value="" disabled selected>choose wisely</option>
@@ -17,7 +17,7 @@ export default function Analyst() {
                   <option>The Monday Morning Coach</option>
               </select>
           </div>
-          <div class="form">
+          <div className="form">
               <label>PERSONALITY TRAITS</label>
               <select>
                   <option value="" disabled selected>choose wisely</option>
@@ -29,7 +29,7 @@ export default function Analyst() {
                   <option>Annoying</option>
               </select>
           </div>
-          <div class="form">
+          <div className="form">
               <label>CLOTHING STYLE</label>
               <select>
                   <option value="" disabled selected>choose wisely</option>
@@ -39,7 +39,7 @@ export default function Analyst() {
                   <option>The Tank Top (Black Tank Top, Rolex, Gold Chain, Blue Jeans, Sneakers)</option>
               </select>
           </div>
-          <div class="form">
+          <div className="form">
               <label>NFL KNOWLEDGE</label>
               <select>
               <option value="" disabled selected>choose wisely</option>
@@ -49,7 +49,7 @@ export default function Analyst() {
                   <option>I Love Football Guy</option>
               </select>
           </div>
-          <div class="form">
+          <div className="form">
               <label>FAVORITE TEAMS</label>
               <select>
                   <option value="" disabled selected>choose wisely</option>
@@ -65,7 +65,7 @@ export default function Analyst() {
                   <option>Baltimore Ravens</option>
               </select>
           </div>
-          <button className= "save-btn" onclick="saveAnalyst()">Save Analyst</button>
+          <button className= "save-btn">Save Analyst</button>
         </div>
     </div>
   )
