@@ -3,7 +3,8 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 
 export default function Quiz() {
- 
+
+  // let [index, setindex] = useState(0)
   const[question, setQuestion] = useState(null)
 
   const questionsSearch = async () => {
@@ -16,9 +17,10 @@ export default function Quiz() {
         throw new Error(`${data.message} (${response.status})`)
       }
     
-      const questionsArrayData = data.questions[0]; // Get the first question
+      const questionsArrayData = data.questions[0]; 
 
     setQuestion({
+      questionNumber: questionsArrayData.questionNumber,
       question: questionsArrayData.question,
       options0: questionsArrayData.options[0],
       options1: questionsArrayData.options[1],
@@ -31,6 +33,14 @@ export default function Quiz() {
       console.error('Error fetching questions data:', error)
     }
   }
+  const checkAnswer = (optionValue, e) => {
+    if (optionValue === question.answer.toString()) {
+      e.target.classList.add('correct')
+    } else {
+      e.target.classList.add('wrong')
+    }
+  }
+
 
   useEffect(() => {
     questionsSearch()
@@ -41,15 +51,15 @@ export default function Quiz() {
     <>
     <div className="question-container">
         <div>
-            <h2>Question 1</h2>
+            <h2>Question {question?.questionNumber || "Loading question..."} </h2>
             <p><b>NFL Analyst:</b> John Doe</p>
             <p className ="question">{question?.question || "Loading question..."}</p>
         </div>
         <div className="answer-buttons">
-        <button className="btn">{question?.options0 || "Loading..."}</button>
-          <button className="btn">{question?.options1 || "Loading..."}</button>
-          <button className="btn">{question?.options2 || "Loading..."}</button>
-          <button className="btn">{question?.options3 || "Loading..."}</button>
+          <button onClick={(e)=>{checkAnswer(question?.options0, e)}} className="btn">{question?.options0 || "Loading..."}</button>
+          <button onClick={(e)=>{checkAnswer(question?.options1, e)}} className="btn">{question?.options1 || "Loading..."}</button>
+          <button onClick={(e)=>{checkAnswer(question?.options2, e)}} className="btn">{question?.options2 || "Loading..."}</button>
+          <button onClick={(e)=>{checkAnswer(question?.options3, e)}} className="btn">{question?.options3 || "Loading..."}</button>
         </div>
         <div>
             <button className = "next-btn">Next Question</button>

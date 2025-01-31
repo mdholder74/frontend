@@ -86,6 +86,13 @@
 .index {
     margin: 10px;
 }
+.correct {
+    background-color: green;
+}
+
+.wrong {
+    background-color: red;
+}
 
 .card {
     border: 2px solid black;
