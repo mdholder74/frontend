@@ -1,14 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Navigation() {
   return (
     <header>
         <nav>
             <ul className="nav-bar">
+              <Link to= "/">
                 <li className ="nav-item">Play Nfl Trivia</li>
-                <li className ="nav-item">Create NFL Analyst</li>
-                <li className ="nav-item">Badges</li>
-                <li className ="nav-item">About Me</li>
+              </Link>
+              <Link to= "/AnalystPage">
+              <li className ="nav-item">Create NFL Analyst</li>
+              </Link>
+              <Link to= "/BadgesPage">
+              <li className ="nav-item">Badges</li>
+              </Link>
+              <Link to= "/AboutPage">
+              <li className ="nav-item">About Me</li>
+              </Link>
             </ul>
         </nav>
     </header>
