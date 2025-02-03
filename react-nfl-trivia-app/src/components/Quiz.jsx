@@ -1,9 +1,6 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Quiz() {
-
   const [index, setIndex] = useState(0)//index a state variable to keep track of the current question index. 0 represents the first question in a quiz (since arrays are zero-indexed).
   const[question, setQuestion] = useState(null)//question a state variable to store the current question data. null, meaning no data is available at the start of the quiz because the data is fetched asynchronously.
   const [questionsArray, setQuestionsArray] = useState([])//questionsArray a state variable to store the questions data fetched from the API. An empty array is used to store the questions data.
@@ -14,7 +11,6 @@ export default function Quiz() {
       const url = 'http://localhost:7000/questions/seed'
       const response = await fetch(url)
       const data = await response.json()
-
       if (!response.ok) {
         throw new Error(`${data.message} (${response.status})`)//example of an error message: "Failed to fetch questions data. (404)"
       }
@@ -26,7 +22,6 @@ export default function Quiz() {
       console.error('Error fetching questions data:', error)
     }
   }
-
   //checkAnswer Function
   const checkAnswer = (optionValue, e) => {//checkAnswer function to check if the selected answer is correct or not. The function takes two arguments: optionValue and e. optionValue is the value of the selected answer, and e is the event object.
     if (!question) return;//If there is no question data available, the function returns early.
@@ -37,7 +32,6 @@ export default function Quiz() {
       e.target.classList.add('wrong')
     }
   }
-
   //restColor Function
   const resetColor = () => {
     const buttons = document.querySelectorAll('.answer-buttons button')
@@ -46,7 +40,6 @@ export default function Quiz() {
       button.classList.remove('wrong')
     })
   }
-
   //nextQuestion Function
   const nextQuestion = () => {
     resetColor()//resetColor function to remove the correct and wrong classes from the answer buttons.
@@ -60,7 +53,6 @@ export default function Quiz() {
   useEffect(() => {//useEffect hook to fetch the questions data when the component mounts.
     questionsSearch()//call the questionsSearch function to fetch the questions data.
   }, [])
-
 
   return (
     <>
@@ -81,5 +73,6 @@ export default function Quiz() {
         </div>
     </div>
     </>
-  )
+
+  ) 
 }
