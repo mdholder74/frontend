@@ -4,9 +4,11 @@ import { useState } from 'react'
 
 export default function Quiz() {
 
-  // let [index, setindex] = useState(0)
-  const[question, setQuestion] = useState(null)
-
+  const [index, setIndex] = useState(0)//index a state variable to keep track of the current question index. 0 represents the first question in a quiz (since arrays are zero-indexed).
+  const[question, setQuestion] = useState(null)//question a state variable to store the current question data. null, meaning no data is available at the start of the quiz because the data is fetched asynchronously.
+  const [questionsArray, setQuestionsArray] = useState([])//questionsArray a state variable to store the questions data fetched from the API. An empty array is used to store the questions data.
+  
+  //questionsSearch Function
   const questionsSearch = async () => {
     try {
       const url = 'http://localhost:7000/questions/seed'
@@ -14,26 +16,21 @@ export default function Quiz() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(`${data.message} (${response.status})`)
+        throw new Error(`${data.message} (${response.status})`)//example of an error message: "Failed to fetch questions data. (404)"
       }
     
-      const questionsArrayData = data.questions[0]; 
-
-    setQuestion({
-      questionNumber: questionsArrayData.questionNumber,
-      question: questionsArrayData.question,
-      options0: questionsArrayData.options[0],
-      options1: questionsArrayData.options[1],
-      options2: questionsArrayData.options[2],
-      options3: questionsArrayData.options[3],
-      answer: questionsArrayData.answer,
-      })
-    } 
+      setQuestionsArray(data.questions); //setQuestionsArray function to store the fetched questions data in the questionsArray state variable.
+      setQuestion(data.questions[index]);//setQuestion function to store the current question data in the question state variable. The current question is fetched from the questionsArray state variable using the index state variable.
+    }
     catch (error) {
       console.error('Error fetching questions data:', error)
     }
   }
-  const checkAnswer = (optionValue, e) => {
+
+  //checkAnswer Function
+  const checkAnswer = (optionValue, e) => {//checkAnswer function to check if the selected answer is correct or not. The function takes two arguments: optionValue and e. optionValue is the value of the selected answer, and e is the event object.
+    if (!question) return;//If there is no question data available, the function returns early.
+    
     if (optionValue === question.answer.toString()) {
       e.target.classList.add('correct')
     } else {
@@ -41,9 +38,27 @@ export default function Quiz() {
     }
   }
 
+  //restColor Function
+  const resetColor = () => {
+    const buttons = document.querySelectorAll('.answer-buttons button')
+    buttons.forEach(button => {
+      button.classList.remove('correct')
+      button.classList.remove('wrong')
+    })
+  }
 
-  useEffect(() => {
-    questionsSearch()
+  //nextQuestion Function
+  const nextQuestion = () => {
+    resetColor()//resetColor function to remove the correct and wrong classes from the answer buttons.
+    setIndex((prevIndex) => {
+      const nextIndex = prevIndex < questionsArray.length - 1 ? prevIndex + 1 : 0;
+      setQuestion(questionsArray[nextIndex]); // Update question state
+      return nextIndex;
+    });
+  };
+  
+  useEffect(() => {//useEffect hook to fetch the questions data when the component mounts.
+    questionsSearch()//call the questionsSearch function to fetch the questions data.
   }, [])
 
 
@@ -56,16 +71,15 @@ export default function Quiz() {
             <p className ="question">{question?.question || "Loading question..."}</p>
         </div>
         <div className="answer-buttons">
-          <button onClick={(e)=>{checkAnswer(question?.options0, e)}} className="btn">{question?.options0 || "Loading..."}</button>
-          <button onClick={(e)=>{checkAnswer(question?.options1, e)}} className="btn">{question?.options1 || "Loading..."}</button>
-          <button onClick={(e)=>{checkAnswer(question?.options2, e)}} className="btn">{question?.options2 || "Loading..."}</button>
-          <button onClick={(e)=>{checkAnswer(question?.options3, e)}} className="btn">{question?.options3 || "Loading..."}</button>
+          {question?.options?.map((option, index) => (
+            <button key={index} onClick={(e) => checkAnswer(option, e)}>{option}</button>
+          ))}
         </div>
         <div>
-            <button className = "next-btn">Next Question</button>
-            <div className = "index">1 of 5 questions</div>
+            <button onClick={nextQuestion} className="next-btn">Next Question</button>
+            <div className="index">{index + 1} of {questionsArray.length} questions</div>
         </div>
-        </div>
+    </div>
     </>
   )
 }
