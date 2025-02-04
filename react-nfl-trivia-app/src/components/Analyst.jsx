@@ -19,7 +19,7 @@ export default function Analyst() {
         })
     }
 
-    //submit form function
+    //Form Submission function
     //this function will send a POST request to the server with the analyst object as the body of the request. If the request is successful, the analyst state object will be reset to its initial state. If the request fails, an error message will be logged to the console
     const handleSubmit = async (e) => {
         e.preventDefault()//prevents the page from refreshing
@@ -50,6 +50,37 @@ export default function Analyst() {
         catch (error) {  
             console.error('Error creating analyst:', error)
     }
+}
+//handleEdit function
+const handleEdit = async (id) => {
+    try {
+        const response = await fetch(`http://localhost:7000/api/trivia/analysts/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(analyst)
+        })
+        const data = await response.json()
+        
+        if (response.ok) {
+            setAnalyst({
+                name: "",
+                personality: "",
+                clothingStyle: "",
+                nflKnowledge: "",
+                favoriteTeam: ""
+            })
+        }
+        else {
+            throw new Error(`${data.message} (${response.status})`)
+        }
+        
+    } 
+    catch (error) {  
+        console.error('Error editing analyst:', error)
+}
+
 }
 
   return (

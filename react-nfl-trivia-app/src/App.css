@@ -23,8 +23,6 @@
 .nav-bar {
     display: flex;
     justify-content:start;
-    border: 2px solid black;
-
 }
 
 .nav-item {
@@ -112,7 +110,6 @@
 .analyst-container {
     width: 1000px;
     max-width: 80%;
-    border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
@@ -152,11 +149,11 @@ label {
 .analyst-card {
     width: 1000px;
     max-width: 80%;
-    border: 2px solid black;
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
     padding: 5px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 
 }
 
@@ -219,7 +216,6 @@ label {
 .about-container {
     width: 1100px;
     max-width: 80%;
-    border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
@@ -253,7 +249,6 @@ p {
 
 .footer {
     display: flex;
-    border: 2px solid black;
     }
 
 .footer-item {

@@ -60,7 +60,7 @@ export default function Quiz() {
     <div className="question-container">
         <div>
             <h2>Question {question?.questionNumber || "Loading question..."} </h2>
-            <p><b>NFL Analyst:</b> John Doe</p>
+            <p><b>NFL Analyst:</b>Moe</p>
             <p className ="question">{question?.question || "Loading question..."}</p>
         </div>
         <div className="answer-buttons">
