@@ -19,6 +19,7 @@
 
 }
 
+/* Navigation */
 .nav-bar {
     display: flex;
     justify-content:start;
@@ -36,6 +37,7 @@
     margin: 10px;
 }
 
+/* quiz section */
 .title {
     border: 2px solid black;
 }
@@ -74,13 +76,21 @@
     cursor: pointer;
 }
 
-.next-btn, .save-btn {
+.next-btn, .submit-btn, .edit-btn, .delete-btn {
     padding: 10px;
-    margin-top: 30px;
+    margin: 20px;
     border: none;
     border-radius: 10px;
     background-color: green;
     cursor: pointer;
+}
+
+.next-btn:hover, .edit-btn:hover {
+    background-color: blue;
+}
+
+.next-btn:hover, .delete-btn:hover {
+    background-color: red;
 }
 
 .index {
@@ -94,14 +104,7 @@
     background-color: red;
 }
 
-.card {
-    border: 2px solid black;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: lightblue;
-}
-
+/* analyst-section */
 .analyst-header {
     margin: 20px;
 }
@@ -146,6 +149,38 @@ label {
     cursor: pointer;
 }
 
+.analyst-card {
+    width: 1000px;
+    max-width: 80%;
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.analyst-trait {
+    font-size: 1.5em;
+    background-color: blue;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+.selection-trait {
+    font-size: 1.5em;
+    background-color: yellow;
+    margin:auto;
+    width: 50%;
+    border-radius: 5px;
+    padding: 5px;
+    color: black;
+    text-align: center;
+}
+
+/* badges section */
 .badges-container {
     display: flex;
     flex-direction: column;
@@ -180,6 +215,7 @@ label {
     margin: 10px;
 }
 
+/* about-section */
 .about-container {
     width: 1100px;
     max-width: 80%;

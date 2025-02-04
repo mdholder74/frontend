@@ -11,6 +11,7 @@ export default function Quiz() {
       const url = 'http://localhost:7000/questions/seed'
       const response = await fetch(url)
       const data = await response.json()
+      
       if (!response.ok) {
         throw new Error(`${data.message} (${response.status})`)//example of an error message: "Failed to fetch questions data. (404)"
       }
