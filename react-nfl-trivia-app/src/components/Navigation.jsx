@@ -9,13 +9,13 @@ export default function Navigation() {
               <Link to= "/">
                 <li className ="nav-item">Play Nfl Trivia</li>
               </Link>
-              <Link to= "/AnalystPage">
+              <Link to= "/analyst">
               <li className ="nav-item">Create NFL Analyst</li>
               </Link>
-              <Link to= "/BadgesPage">
+              <Link to= "/badges">
               <li className ="nav-item">Badges</li>
               </Link>
-              <Link to= "/AboutPage">
+              <Link to= "/about">
               <li className ="nav-item">About Me</li>
               </Link>
             </ul>

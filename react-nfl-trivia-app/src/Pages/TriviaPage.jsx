@@ -1,12 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+  import React from 'react'
+  import Quiz from '../components/Quiz'
+  
+  export default function TriviaPage() {
+    return (
+      <>
+          <Quiz />
 
-export default function TriviaPage() {
-  return (
-    <>
-        <div>TriviaPage</div> 
-        </>
-
-
-  )
-}
+      </>
+    )
+  }
+  
