@@ -2,9 +2,8 @@ import React from 'react'
 import {useState} from 'react'
 import AnalystCard from './AnalystCard'
 
-export default function Analyst() {
+export default function Analyst({setCurrentAnalyst}) {
     const [analyst, setAnalyst] = useState({
-        _id: "",
         name: "",
         personality: "",
         clothingStyle: "",
@@ -35,10 +34,10 @@ export default function Analyst() {
                 body: JSON.stringify(analyst)
             })
             const data = await response.json()
+            setCurrentAnalyst(data)
             
             if (response.ok) {//if the response is ok, the analyst state object is reset to its initial state
                 setAnalyst({
-                    _id: "",
                     name: "",
                     personality: "",
                     clothingStyle: "",
