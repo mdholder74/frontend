@@ -79,8 +79,36 @@ const handleEdit = async (id) => {
     } 
     catch (error) {  
         console.error('Error editing analyst:', error)
+    }
+
 }
 
+//handleDelete function
+const handleDelete = async (id) => {
+    try {
+        const response = await fetch(`http://localhost:7000/api/trivia/analysts/${id}`, {
+            method: 'DELETE'
+        })
+        const data = await response.json()
+        
+        if (response.ok) {
+            setAnalyst({
+                name: "",
+                personality: "",
+                clothingStyle: "",
+                nflKnowledge: "",
+                favoriteTeam: ""
+            })
+        }
+        else {
+            throw new Error(`${data.message} (${response.status})`)
+        }
+        
+    } 
+    catch (error) {  
+        console.error('Error deleting analyst:', error)
+
+    }
 }
 
   return (
@@ -160,6 +188,7 @@ const handleEdit = async (id) => {
                 <p className ="selection-trait">{analyst.nflKnowledge}</p>
                 <p className ="analyst-trait">FAVORITE TEAM🏈</p>
                 <p className ="selection-trait">{analyst.favoriteTeam}</p>
+                <button type="submit" className="result-btn">Get Results</button>
                 <button type="submit" className="edit-btn">Edit</button>
                 <button type="submit" className="delete-btn">Delete</button>
             </div>

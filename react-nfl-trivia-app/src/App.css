@@ -74,7 +74,7 @@
     cursor: pointer;
 }
 
-.next-btn, .submit-btn, .edit-btn, .delete-btn {
+.next-btn, .submit-btn, .edit-btn, .delete-btn, .result-btn {
     padding: 10px;
     margin: 20px;
     border: none;
