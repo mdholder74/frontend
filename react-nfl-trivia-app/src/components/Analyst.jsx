@@ -1,13 +1,16 @@
 import React from 'react'
 import {useState} from 'react'
+import AnalystCard from './AnalystCard'
 
 export default function Analyst() {
     const [analyst, setAnalyst] = useState({
+        _id: "",
         name: "",
         personality: "",
         clothingStyle: "",
         nflKnowledge: "",
-        favoriteTeam: ""
+        favoriteTeam: "",
+
     })
 
     //handle change function
@@ -35,6 +38,7 @@ export default function Analyst() {
             
             if (response.ok) {//if the response is ok, the analyst state object is reset to its initial state
                 setAnalyst({
+                    _id: "",
                     name: "",
                     personality: "",
                     clothingStyle: "",
@@ -49,91 +53,6 @@ export default function Analyst() {
         } 
         catch (error) {  
             console.error('Error creating analyst:', error)
-    }
-}
-//handleResult function
-const getAnalyst = async (id) => {
-    try {
-        const response = await fetch(`http://localhost:7000/api/trivia/analysts/${id}`, {
-            method: 'GET'
-        })
-        const data = await response.json()
-        
-        if (response.ok) {
-            setAnalyst({
-                name: "",
-                personality: "",
-                clothingStyle: "",
-                nflKnowledge: "",
-                favoriteTeam: ""
-            })
-        }
-        else {
-            throw new Error(`${data.message} (${response.status})`)
-        }
-        
-    } 
-    catch (error) {  
-        console.error('Error getting analyst:', error)
-    }   
-}
-//handleEdit function
-const handleEdit = async (id) => {
-    try {
-        const response = await fetch(`http://localhost:7000/api/trivia/analysts/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(analyst)
-        })
-        const data = await response.json()
-        
-        if (response.ok) {
-            setAnalyst({
-                name: "",
-                personality: "",
-                clothingStyle: "",
-                nflKnowledge: "",
-                favoriteTeam: ""
-            })
-        }
-        else {
-            throw new Error(`${data.message} (${response.status})`)
-        }
-        
-    } 
-    catch (error) {  
-        console.error('Error editing analyst:', error)
-    }
-
-}
-
-//handleDelete function
-const handleDelete = async (id) => {
-    try {
-        const response = await fetch(`http://localhost:7000/api/trivia/analysts/${id}`, {
-            method: 'DELETE'
-        })
-        const data = await response.json()
-        
-        if (response.ok) {
-            setAnalyst({
-                name: "",
-                personality: "",
-                clothingStyle: "",
-                nflKnowledge: "",
-                favoriteTeam: ""
-            })
-        }
-        else {
-            throw new Error(`${data.message} (${response.status})`)
-        }
-        
-    } 
-    catch (error) {  
-        console.error('Error deleting analyst:', error)
-
     }
 }
 
@@ -200,24 +119,6 @@ const handleDelete = async (id) => {
             </div>
                 <button type="submit" className="submit-btn">Submit</button>
         </form>
-        </div>
-        <div>
-            <div className="analyst-card">
-            <h2 className="analyst-header">Meet Your NFL Analyst</h2>
-                <p className ="analyst-trait">NAME🖤</p>
-                <p className ="selection-trait">{analyst.name}</p>
-                <p className ="analyst-trait">PERSONALITY🎙️</p>
-                <p className ="selection-trait">{analyst.personality}</p>
-                <p className ="analyst-trait">CLOTHING STYLE👕 </p>
-                <p className ="selection-trait">{analyst.clothingStyle}</p>
-                <p className ="analyst-trait">NFL KNOWLEDGE💡</p>
-                <p className ="selection-trait">{analyst.nflKnowledge}</p>
-                <p className ="analyst-trait">FAVORITE TEAM🏈</p>
-                <p className ="selection-trait">{analyst.favoriteTeam}</p>
-                <button type="submit" className="result-btn">Get Results</button>
-                <button type="submit" className="edit-btn">Edit</button>
-                <button type="submit" className="delete-btn">Delete</button>
-            </div>
         </div>
     </div>
   )
