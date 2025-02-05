@@ -51,6 +51,32 @@ export default function Analyst() {
             console.error('Error creating analyst:', error)
     }
 }
+//handleResult function
+const getAnalyst = async (id) => {
+    try {
+        const response = await fetch(`http://localhost:7000/api/trivia/analysts/${id}`, {
+            method: 'GET'
+        })
+        const data = await response.json()
+        
+        if (response.ok) {
+            setAnalyst({
+                name: "",
+                personality: "",
+                clothingStyle: "",
+                nflKnowledge: "",
+                favoriteTeam: ""
+            })
+        }
+        else {
+            throw new Error(`${data.message} (${response.status})`)
+        }
+        
+    } 
+    catch (error) {  
+        console.error('Error getting analyst:', error)
+    }   
+}
 //handleEdit function
 const handleEdit = async (id) => {
     try {
