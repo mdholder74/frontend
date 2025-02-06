@@ -31,7 +31,7 @@ export default function About() {
             <img className="eagles-img" src={birdGang} alt="image of an eagle" />
             <p>The Birds</p>
             <img className="eagles-img" src={birds} alt="image of birds" />
-            <p>Bird Gand</p>
+            <p>Bird Gang</p>
             <img className="eagles-img" src={iggles} alt="image of an eagle" />
         <div className="about-title">📌Lets Connect</div>
         <p>

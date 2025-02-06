@@ -13,6 +13,8 @@ NFL Trivia with a Twist is an interactive web application designed for NFL fanat
 
 **About Me Page:** Learn about what inspired me to create this game and my TOP 3 favorite NFL teams .
 
+**Link to Backend:** https://github.com/mdholder74/backend
+
 ## Features
 - Responsive design
 - Integration with backend APIs
@@ -58,13 +60,6 @@ npm start
 3. Install the dependencies:
     ```bash
     npm install
-    ```
-
-## Configuration
-1. Create a `.env` file in the root of the backend directory and add the following environment variables:
-    ```plaintext
-    PORT=your_port
-    DATABASE_URL=your_database_url
     ```
 
 ## Running the Application
